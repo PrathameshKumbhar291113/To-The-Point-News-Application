@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/grey">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/idIVNews"
+            android:scaleType="centerCrop">
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idTVNewsHeading"
+            android:layout_below="@id/idIVNews"
+            android:textStyle="bold"
+            android:textColor="@color/yellow"
+            android:text="New Heading"
+            android:textSize="20sp"
+            android:padding="3dp"
+            android:maxLines="2"
+            android:layout_margin="3dp">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idTVSubTitle"
+            android:text="sub heading"
+            android:layout_below="@id/idTVNewsHeading"
+            android:layout_margin="3dp"
+            android:padding="3dp">
+        </TextView>
+    </RelativeLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>
