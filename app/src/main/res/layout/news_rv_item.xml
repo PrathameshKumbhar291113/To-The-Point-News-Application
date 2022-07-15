@@ -9,12 +9,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
+            android:id="@+id/idIVNews"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/idIVNews"
-            android:scaleType="centerCrop">
-        </ImageView>
+            android:scaleType="centerCrop"></ImageView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
