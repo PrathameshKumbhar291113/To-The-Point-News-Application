@@ -1,8 +1,8 @@
 package com.example.tothepointnews;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NewsDetailActivity extends AppCompatActivity {
     String title,desc,content,imageURL,url;

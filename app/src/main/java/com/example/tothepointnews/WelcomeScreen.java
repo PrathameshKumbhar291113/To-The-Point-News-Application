@@ -1,10 +1,9 @@
 package com.example.tothepointnews;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomeScreen extends AppCompatActivity {
     @Override
@@ -25,7 +24,8 @@ public class WelcomeScreen extends AppCompatActivity {
                     finish();
                 }
             }
-        };t.start();
+        };
+        t.start();
 
     }
 }

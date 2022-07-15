@@ -1,13 +1,13 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.models.news;
 
 import java.util.ArrayList;
 
-public class NewsModal {
+public class News {
     private int totalResult;
     private String status;
     private ArrayList<Articles> articles;
 
-    public NewsModal(int totalResult, String status, ArrayList<Articles> articles) {
+    public News(int totalResult, String status, ArrayList<Articles> articles) {
         this.totalResult = totalResult;
         this.status = status;
         this.articles = articles;
