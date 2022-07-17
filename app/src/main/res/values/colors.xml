@@ -12,6 +12,7 @@
     <!-- Adding Custom Colors to the Colors.xml file-->
     <color name="green_medium">#0F9D58</color>
     <color name="black_shade_1">#292D36</color>
+    <color name="black_shade_2">#090909</color>
     <color name="grey">#424242</color>
     <color name="yellow">#FFA500</color>
 </resources>
