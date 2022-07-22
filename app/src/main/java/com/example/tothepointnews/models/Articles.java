@@ -1,4 +1,4 @@
-package com.example.tothepointnews.models.news;
+package com.example.tothepointnews.models;
 
 public class Articles {
     private String title;

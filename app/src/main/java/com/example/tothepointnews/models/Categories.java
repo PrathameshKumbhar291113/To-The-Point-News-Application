@@ -1,10 +1,10 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.models;
 
-public class CategoryRVModal{
+public class Categories {
     private String category;
     private String categoryImageUrl;
 
-    public CategoryRVModal(String category, String categoryImageUrl) {
+    public Categories(String category, String categoryImageUrl) {
         this.category = category;
         this.categoryImageUrl = categoryImageUrl;
     }

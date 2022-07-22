@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".HomeScreen">
+    tools:context=".activity.HomeScreen">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -26,8 +26,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/yellow"
                 android:textSize="30sp"
-                android:textStyle="bold">
-            </TextView>
+                android:textStyle="bold"></TextView>
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -50,8 +49,7 @@
         android:layout_marginTop="7dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/news_rv_item">
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/news_rv_item"></androidx.recyclerview.widget.RecyclerView>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

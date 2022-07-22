@@ -1,4 +1,4 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tothepointnews.models.news.Articles;
+import com.example.tothepointnews.R;
+import com.example.tothepointnews.activity.NewsDetailActivity;
+import com.example.tothepointnews.models.Articles;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new  Intent(context,NewsDetailActivity.class);
+                Intent intent = new  Intent(context, NewsDetailActivity.class);
                 intent.putExtra("title",articles.getTitle());
                 intent.putExtra("content",articles.getContent());
                 intent.putExtra("desc",articles.getDescription());

@@ -1,6 +1,6 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.api;
 
-import com.example.tothepointnews.models.news.News;
+import com.example.tothepointnews.models.News;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

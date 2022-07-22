@@ -1,4 +1,4 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tothepointnews.models.news.Articles;
-import com.example.tothepointnews.models.news.News;
+import com.example.tothepointnews.R;
+import com.example.tothepointnews.adapter.CategoryRVAdapter;
+import com.example.tothepointnews.adapter.NewsRVAdapter;
+import com.example.tothepointnews.api.RetrofitAPI;
+import com.example.tothepointnews.models.Articles;
+import com.example.tothepointnews.models.Categories;
+import com.example.tothepointnews.models.News;
 
 import java.util.ArrayList;
 
@@ -28,7 +33,7 @@ public class HomeScreen extends AppCompatActivity implements CategoryRVAdapter.C
     private RecyclerView newsRV , categoryRV;
     private ProgressBar loadingPB;
     private ArrayList<Articles> articlesArrayList;
-    private ArrayList<CategoryRVModal> categoryRVModalArrayList;
+    private ArrayList<Categories> categoriesArrayList;
     private CategoryRVAdapter categoryRVAdapter;
     private NewsRVAdapter newsRVAdapter;
 
@@ -41,9 +46,9 @@ public class HomeScreen extends AppCompatActivity implements CategoryRVAdapter.C
         categoryRV = findViewById(R.id.idRVCategories);
         loadingPB = findViewById(R.id.idPBLoading);
         articlesArrayList = new ArrayList<>();
-        categoryRVModalArrayList =new ArrayList<>();
+        categoriesArrayList =new ArrayList<>();
         newsRVAdapter = new NewsRVAdapter(articlesArrayList,this);
-        categoryRVAdapter = new CategoryRVAdapter(categoryRVModalArrayList,this,this::onCategoryClick);
+        categoryRVAdapter = new CategoryRVAdapter(categoriesArrayList,this,this::onCategoryClick);
         newsRV.setLayoutManager(new LinearLayoutManager(this));
         newsRV.setAdapter(newsRVAdapter);
         categoryRV.setAdapter(categoryRVAdapter);
@@ -53,15 +58,15 @@ public class HomeScreen extends AppCompatActivity implements CategoryRVAdapter.C
     }
 
     private void getCategories(){
-        categoryRVModalArrayList.add(new CategoryRVModal("India","https://images.unsplash.com/photo-1622811895296-587f052944fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGluZGlhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Technology","https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Science","https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Sports","https://images.unsplash.com/photo-1502014822147-1aedfb0676e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("General","https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Business","https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=815&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Entertainment","https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("Health","https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80"));
-        categoryRVModalArrayList.add(new CategoryRVModal("World","https://images.unsplash.com/photo-1589519160732-57fc498494f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"));
+        categoriesArrayList.add(new Categories("India","https://images.unsplash.com/photo-1622811895296-587f052944fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGluZGlhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"));
+        categoriesArrayList.add(new Categories("Technology","https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"));
+        categoriesArrayList.add(new Categories("Science","https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"));
+        categoriesArrayList.add(new Categories("Sports","https://images.unsplash.com/photo-1502014822147-1aedfb0676e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"));
+        categoriesArrayList.add(new Categories("General","https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"));
+        categoriesArrayList.add(new Categories("Business","https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=815&q=80"));
+        categoriesArrayList.add(new Categories("Entertainment","https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"));
+        categoriesArrayList.add(new Categories("Health","https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80"));
+        categoriesArrayList.add(new Categories("World","https://images.unsplash.com/photo-1589519160732-57fc498494f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"));
         categoryRVAdapter.notifyDataSetChanged();
     }
 
@@ -135,7 +140,7 @@ public class HomeScreen extends AppCompatActivity implements CategoryRVAdapter.C
 
     @Override
     public void onCategoryClick(int position) {
-        String category = categoryRVModalArrayList.get(position).getCategory();
+        String category = categoriesArrayList.get(position).getCategory();
         getNews(category);
     }
 }

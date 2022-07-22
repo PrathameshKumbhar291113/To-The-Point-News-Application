@@ -1,4 +1,4 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.tothepointnews.R;
 import com.squareup.picasso.Picasso;
 
 public class NewsDetailActivity extends AppCompatActivity {

@@ -1,6 +1,5 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tothepointnews.R;
+import com.example.tothepointnews.models.Categories;
 import com.squareup.picasso.Picasso;
-
 
 import java.util.ArrayList;
 
 public class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.ViewHolder>{
-    private ArrayList<CategoryRVModal> categoryRVModals;
+    private ArrayList<Categories> categories;
     private Context context;
     private CategoryClickInterface categoryClickInterface;
 
-    public CategoryRVAdapter(ArrayList<CategoryRVModal> categoryRVModal, Context context, CategoryClickInterface categoryClickInterface) {
-        this.categoryRVModals = categoryRVModal;
+    public CategoryRVAdapter(ArrayList<Categories> categories, Context context, CategoryClickInterface categoryClickInterface) {
+        this.categories = categories;
         this.context = context;
         this.categoryClickInterface = categoryClickInterface;
     }
@@ -36,9 +36,9 @@ public class CategoryRVAdapter extends RecyclerView.Adapter<CategoryRVAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull CategoryRVAdapter.ViewHolder holder,int position) {
-CategoryRVModal categoryRVModal = categoryRVModals.get(position);
-holder.categoryTV.setText(categoryRVModal.getCategory());
-        Picasso.get().load(categoryRVModal.getCategoryImageUrl()).into(holder.categoryIV);
+Categories categories = this.categories.get(position);
+holder.categoryTV.setText(categories.getCategory());
+        Picasso.get().load(categories.getCategoryImageUrl()).into(holder.categoryIV);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +51,7 @@ holder.categoryTV.setText(categoryRVModal.getCategory());
 
     @Override
     public int getItemCount() {
-        return categoryRVModals.size();
+        return categories.size();
     }
 
     public interface CategoryClickInterface{

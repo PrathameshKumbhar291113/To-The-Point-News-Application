@@ -15,25 +15,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".NewsDetailActivity"
+            android:name=".activity.NewsDetailActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".WelcomeScreen"
+            android:name=".activity.WelcomeScreen"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <categories android:name="android.intent.categories.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"
-            android:name=".HomeScreen"
+            android:name=".activity.HomeScreen"
             android:exported="true">
         </activity>
     </application>

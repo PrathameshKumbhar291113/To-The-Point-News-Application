@@ -1,9 +1,11 @@
-package com.example.tothepointnews;
+package com.example.tothepointnews.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tothepointnews.R;
 
 public class WelcomeScreen extends AppCompatActivity {
     @Override
@@ -19,7 +21,7 @@ public class WelcomeScreen extends AppCompatActivity {
                 }catch (Exception e){
                     e.printStackTrace();
                 }finally {
-                    Intent intent = new Intent(WelcomeScreen.this,HomeScreen.class);
+                    Intent intent = new Intent(WelcomeScreen.this, HomeScreen.class);
                     startActivity(intent);
                     finish();
                 }
